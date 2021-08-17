@@ -44,7 +44,7 @@ class CoupleCalculator:
     def calculate(self, name1: str, name2: str, hape1: str, hape2: str):
         couple = self.couple_calculate(name1, name2)
         handphone = handphone_calculate(hape1, hape2)
-        final = (couple * handphone) ** .5
+        final = (100 - (couple * handphone) ** .5)
         return str(final) + "%"
 
 
