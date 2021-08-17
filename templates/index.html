@@ -1,0 +1,55 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <title>Badut Calculator</title>
+    </head>
+    <body>
+        <div class="container-sm" style="width: 75%; margin-top: 20vh">
+            <h1 class="text-center">Badut Calculator</h1>
+            <form action="{{ url_for('operation_result') }}" method="post" id="calculator_form">
+                <div class="mb-3">
+                    <label for="name1" class="form-label">Nama Kamu</label>
+                    <input type="text" class="form-control" id="name1" name="name1" aria-describedby="Your name">
+                    <div id="nameHelp1" class="form-text">Tenang, nama kamu tidak akan disimpan atau dibagikan</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="hape1" class="form-label">Nomor Handphone Kamu</label>
+                    <input type="text" class="form-control" id="hape1" name="hape1" aria-describedby="Your phone number" placeholder="08xxxxxxx">
+                    <div id="hapeHelp1" class="form-text">Nomor hape kamu juga aman kok, tidak akan disimpan ataupun dibagikan</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="name2" class="form-label">Nama Pasangan Kamu</label>
+                    <input type="text" class="form-control" id="name2" name="name2">
+                    <div id="nameHelp2" class="form-text">Apalagi nama pasangan kamu. Dijamin 100% rahasia terjaga!</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="hape2" class="form-label">Nomor Handphone Crush Kamu</label>
+                    <input type="text" class="form-control" id="hape2" name="hape2" aria-describedby="Your crush number" placeholder="08xxxxxxx">
+                    <div id="hapeHelp2" class="form-text">Takut ditikung? Gabakal. Gada data yang disimpan atau dibagikan kok</div>
+                </div>
+
+                    <input type="submit" class="btn btn-primary" value="Hitung">
+                </form>
+        </div>
+        {% if calculation_success %}
+            <div class="container-sm" style="width: 75%">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Potensi <strong>{{ name1 }}</strong> jadi BADUT sebesar
+                    </div>
+                    <div class="card-body text-center">
+                        <h1 class="card-text">{{ result }}</h1>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </body>
+</html>
